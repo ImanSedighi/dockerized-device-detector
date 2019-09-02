@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Device Detector</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/app.css">
+
+</head>
+<body ng-app="plista" ng-controller="deviceDetectorController as ddCtrl">
+
+<div class="container" ng-cloak>
+    <div class="col-12 mt-5">
+        <img style="width:100px;" src="./images/plista_Logo.png" />
+    </div>
+
+    <div class="col-12 mt-4">
+        <button class="btn btn-primary btn-loader" ng-click="ddCtrl.detect()">
+            <span ng-if="!ddCtrl.isLoading">Detect your device</span>
+            <div ng-if="ddCtrl.isLoading" class="loader">
+                <div class="lds-dual-ring align-middle"></div>
+                <span  class="align-middle">Detecting</span>
+            </div>
+        </button>
+    </div>
+
+    <div class="col-12 mt-4" ng-if="ddCtrl.details">
+        <div class="card card-details">
+            <div class="card-header">
+                Your device info
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <span>Device: </span>
+                    <span class="device-span text-primary" ng-bind="ddCtrl.details.device"></span>
+                </li>
+                <li class="list-group-item">
+                    <span>Operating system: </span>
+                    <span class="os-span text-primary" ng-bind="ddCtrl.details.os"></span>
+                </li>
+                <li class="list-group-item">
+                    <span>Browser: </span>
+                    <span class="browser-span text-primary" ng-bind="ddCtrl.details.browser"></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>

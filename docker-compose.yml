@@ -1,0 +1,23 @@
+version: "3"
+services:
+  ####################
+  # API Container
+  ####################
+  server:
+      build: ./app
+      ports:
+        - "80:80"
+      volumes:
+        - ./app:/var/www/html/api/
+
+  ####################
+  # Client Container
+  ####################
+  client:
+      build: ./client
+      ports:
+        - "8080:80"
+      volumes:
+        - ./client:/usr/local/apache2/htdocs/
+      depends_on:
+        - server
