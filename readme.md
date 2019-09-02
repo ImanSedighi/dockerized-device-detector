@@ -1,7 +1,8 @@
 ## Plista Test
 Hey there, Here is a simple dockerized application to detect user's browser.
 
-## How to run 
+## How to run
+- Install composer packages in the app directory.
 - Run docker-compose up 
 - Open the app in http://localhost:8080/
 
